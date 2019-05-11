@@ -1,3 +1,4 @@
+/* eslint-disable */
 //airtable
 const Airtable = require("airtable");
 //const base = airtable.base("appH81X67TStprrkF");
@@ -23,3 +24,4 @@ return new Promise(function(resolve, reject) {
   });
 
 };
+/* eslint-disable */

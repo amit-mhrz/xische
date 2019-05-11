@@ -18,8 +18,7 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      //jQuery('.wrapper').addClass('fff')
-      
+      //  jQuery('.wrapper').addClass('fff')
     })
   }
 }
