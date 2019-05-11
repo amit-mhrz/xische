@@ -11,7 +11,7 @@
                         <div class="col-sm-12">
                             <div class="banner__wrapper">
                                 <div class="banner__info">
-                                    
+
                                 <p>
                                     <span class="icon icon-Twitter"></span>
                                     <span class="post-topic">ARTIFICIAL INTELLIGENCE</span> | <span class="post-location" v-if="article.fields.City !== null ">{{ article.fields.City }}</span></p>
@@ -114,41 +114,37 @@
     </div>
 </template>
 
-
 <script>
 export default {
-    name: "Detail",
-    data() {
-        return {
-            articleImage: null
-        }
-    },
-    props: ['article', 'allTopics'],
-    watch: {
-        article() {
-            if(this.article.fields.Attachment)
-                this.articleImage = this.article.fields.Attachment[0].thumbnails.large.url
-            else
-                this.articleImage = 'https://picsum.photos/600/300/?image=25'
-        }
-    },
-    methods: {
-        closeDetailSection() {
-          const el = document.body;
-          el.classList.remove("content-open");
-          $('.content-loader').slideUp();
-        },
-        getTopicNameByID( ids ) {
-            var topicName = [];
-            for (let index = 0; index < ids.length; index++) {
-                this.allTopics.map( function(topic){
-                    if( topic.id == ids[index] ){
-                        topicName.push( topic.value )
-                    }
-                })
-            }
-            return topicName.join();
-        }
+  name: 'Detail',
+  data () {
+    return {
+      articleImage: null
     }
+  },
+  props: ['article', 'allTopics'],
+  watch: {
+    article () {
+      if (this.article.fields.Attachment) { this.articleImage = this.article.fields.Attachment[0].thumbnails.large.url } else { this.articleImage = 'https://picsum.photos/600/300/?image=25' }
+    }
+  },
+  methods: {
+    closeDetailSection () {
+      const el = document.body
+      el.classList.remove('content-open')
+      $('.content-loader').slideUp()
+    },
+    getTopicNameByID (ids) {
+      var topicName = []
+      for (let index = 0; index < ids.length; index++) {
+        this.allTopics.map(function (topic) {
+          if (topic.id === ids[index]) {
+            topicName.push(topic.value)
+          }
+        })
+      }
+      return topicName.join()
+    }
+  }
 }
 </script>

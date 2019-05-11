@@ -79,7 +79,7 @@
                                 <button class="dropdown-toggle" type="button" id="topics" data-toggle="dropdown">
                                 Topics <span class="icon icon-arrow-down"></span>
                                 </button>
-                                
+
                                 <div class="dropdown-menu">
                                     <span v-for="(topic, i) in allTopics" :key="i">
                                         <a href="#" class="dropdown-item" :id="topic.id">{{topic.value}}</a>
@@ -139,40 +139,39 @@
     </header>
 </template>
 
-
 <script>
 import $ from 'jquery'
 
 export default {
 
-    name: "header",
-    props: {
-        allTypes: {
-            type: Array
-        },
-        allTopics: {
-            type: Array
-        }
+  name: 'header',
+  props: {
+    allTypes: {
+      type: Array
     },
-    data: () => ({
-        toggleCheck: false,
-        selectedTopics: []
-    }),
-    watch: {
-        selectedTopics() {
-            console.log("Type Selected --");
-            this.$emit("topicSelected", this.selectedTopics); 
-        },
-    },
-    methods: {
-        toggleSearchForm() {
-            this.toggleCheck = !this.toggleCheck;
-            if (this.toggleCheck == true) {
-                $('.search-input').slideDown();
-            } else {
-                $('.search-input').slideUp();
-            }
-        }
+    allTopics: {
+      type: Array
     }
+  },
+  data: () => ({
+    toggleCheck: false,
+    selectedTopics: []
+  }),
+  watch: {
+    selectedTopics () {
+      console.log('Type Selected --')
+      this.$emit('topicSelected', this.selectedTopics)
+    }
+  },
+  methods: {
+    toggleSearchForm () {
+      this.toggleCheck = !this.toggleCheck
+      if (this.toggleCheck === true) {
+        $('.search-input').slideDown()
+      } else {
+        $('.search-input').slideUp()
+      }
+    }
+  }
 }
 </script>
